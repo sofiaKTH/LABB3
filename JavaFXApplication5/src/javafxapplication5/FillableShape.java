@@ -20,6 +20,10 @@ abstract public class FillableShape extends Shape{
         this.filled = filled;
     }
 
+    protected FillableShape() {
+        
+    }
+
    public boolean isFilled(){
        return filled;
    }
@@ -27,5 +31,5 @@ abstract public class FillableShape extends Shape{
    public void setFilled(boolean filled){
        this.filled=filled;
    }
-
+    
 }
