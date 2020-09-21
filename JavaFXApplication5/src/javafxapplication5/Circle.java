@@ -20,12 +20,15 @@ public class Circle extends FillableShape{
         super(filled, x, y, color);
         this.diameter=diameter;
     }
-    
-    
 
+    public double getDiameter() {
+        return diameter;
+    }
 
-
-    
+    public void setDiameter(double diameter) {
+        this.diameter = diameter;
+    }
+        
     @Override
     public void constrain(
             double boxX, double boxY, 
