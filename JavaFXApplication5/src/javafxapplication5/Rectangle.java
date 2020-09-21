@@ -43,28 +43,8 @@ private double With, height;
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-@Override
-     public void constrain(
-            double boxX, double boxY, 
-            double boxWidth, double boxHeight) {
-        // If outside the box - calculate new dx and dy
-        if (super.getX() < boxX) {
-            dx = Math.abs(dx);
-        } else if (super.getX() > boxWidth) {
-            dx = -Math.abs(dx);
-        }
-        if (y < boxY) {
-            dy = Math.abs(dy);
-        } else if (y > boxHeight) {
-            dy = -Math.abs(dy);
-        }
+    public void constrain(){
+        
     }
-
-    @Override
-    public String toString() {
-        return "Rectangle{" + "With=" + With + ", height=" + height + '}';
-    }
-     
-     
     
 }
