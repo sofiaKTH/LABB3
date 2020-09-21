@@ -5,10 +5,31 @@
  */
 package javafxapplication5;
 
+import javafx.scene.paint.Color;
+
 /**
  *
  * @author nadri
  */
-abstract public class fillableShape extends Shape{
+abstract public class FillableShape extends Shape{
+    
+    private boolean filled;
+
+    protected FillableShape(boolean filled, double x, double y, Color color) {
+        super(x, y, color);
+        this.filled = filled;
+    }
+
+    protected FillableShape() {
+        
+    }
+
+   public boolean isFilled(){
+       return filled;
+   }
+   
+   public void setFilled(boolean filled){
+       this.filled=filled;
+   }
     
 }
