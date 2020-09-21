@@ -12,30 +12,24 @@ import javafx.scene.paint.Color;
  *
  * @author nadri
  */
-public class Rectangle extends FillableShape{
-private double With, height;
+public class Circle extends FillableShape{
 
-    public Rectangle(double With, double height, boolean filled, double x, double y, Color color) {
+    private double diameter;
+
+    public Circle(double diameter, boolean filled, double x, double y, Color color) {
         super(filled, x, y, color);
-        this.With = With;
-        this.height = height;
+        this.diameter = diameter;
     }
 
-    public double getWith() {
-        return With;
+    public double getDiameter() {
+        return diameter;
     }
 
-    public double getHeight() {
-        return height;
+    public void setDiameter(double diameter) {
+        this.diameter = diameter;
     }
-
-    public void setWith(double With) {
-        this.With = With;
-    }
-
-    public void setHeight(double height) {
-        this.height = height;
-    }
+    
+    
     
     
     @Override
@@ -43,14 +37,14 @@ private double With, height;
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-@Override
+    @Override
      public void constrain(
             double boxX, double boxY, 
             double boxWidth, double boxHeight) {
         // If outside the box - calculate new dx and dy
-        if (super.getX() < boxX) {
+        if (x < boxX) {
             dx = Math.abs(dx);
-        } else if (super.getX() > boxWidth) {
+        } else if (x > boxWidth) {
             dx = -Math.abs(dx);
         }
         if (y < boxY) {
@@ -62,9 +56,8 @@ private double With, height;
 
     @Override
     public String toString() {
-        return "Rectangle{" + "With=" + With + ", height=" + height + '}';
+        return "Circle{" + "diameter=" + diameter + '}';
     }
-     
-     
     
+     
 }
