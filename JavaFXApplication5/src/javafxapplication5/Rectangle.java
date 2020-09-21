@@ -59,5 +59,10 @@ private double With, height;
             dy = -Math.abs(dy);
         }*/
     }
+
+    @Override
+    public String toString() {
+        return "Rectangle{" + "With=" + With + ", height=" + height + '}';
+    }
     
 }
