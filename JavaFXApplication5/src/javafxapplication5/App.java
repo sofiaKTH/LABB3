@@ -2,6 +2,7 @@ package javafxapplication5;
 
  // TODO: Change to your package name
 
+import static java.lang.System.gc;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -57,6 +58,8 @@ public class App extends Application {
             // paint the background
             gc.setFill(Color.WHITESMOKE);
             gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
+            
+       
 
             // paint the shapes
             for (Shape b : world.getShapes()) {
@@ -85,7 +88,7 @@ public class App extends Application {
         stage.show();
 
         world = new World(canvas.getWidth(), canvas.getHeight());
-
+                
         timer = new BounceTimer();
         timer.start();
     }
