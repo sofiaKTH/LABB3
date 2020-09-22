@@ -28,16 +28,10 @@ public class Line extends Shape{
         return y2;
     }
     public void setX2(double x2) {
-        if(x2<=0) {
-            this.x2=1;
-        }
-        else this.x2=x2;
+        this.x2=x2;
     }
     public void setY2(double y2) {
-        if(y2<=0) {
-            this.y2=1;
-        }
-        else this.y2=y2;
+        this.y2=y2;
     }
     
     @Override
@@ -49,9 +43,30 @@ public class Line extends Shape{
         
     }
     @Override
-    public void constrain (double d1, double d2, double d3, double d4) {
-        
+    public void constrain (double boxX, double boxY, 
+            double boxWidth, double boxHeight) {
+        // If outside the box - calculate new dx and dy
+        double dx,dy;
+        if (getX() < boxX) {
+            dx = Math.abs(super.getDx());
+            dy = Math.abs(super.getDy());
+            super.setVelocity(dx, dy);
+        } else if (getX() > boxWidth) {
+            dx = -Math.abs(getDx());
+            dy = -Math.abs(getDy());
+            super.setVelocity(dx, dy);
+        }
+        if (getY() < boxY) {
+            dx = Math.abs(super.getDx());
+            dy = Math.abs(super.getDy());
+            super.setVelocity(dx, dy);
+        } else if (getY() > boxHeight) {
+            dx = -Math.abs(getDx());
+            dy = -Math.abs(getDy());
+            super.setVelocity(dx, dy);
+        }
     }
+    
     @Override
     public String toString() {
         String S="";
