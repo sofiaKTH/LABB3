@@ -42,13 +42,14 @@ private double With, height;
     public void paint(GraphicsContext gc) {
         if(isFilled()){   
             gc.setFill(getColor());
+            gc.fillRect(getX(), getY(), getWith() , getHeight());
         }
-        else{
+        /*else{
             gc.setFill(Color.WHITE);
-        }    
-        gc.fillRect(getX(), getY(), getWith() , getHeight());
+        } */   
         gc.setStroke(getColor());
-        gc.setLineWidth(4.0);
+        gc.strokeRect(getX(), getY(), getWith(), getHeight());
+        gc.setLineWidth(5.0);
             
     }
     
