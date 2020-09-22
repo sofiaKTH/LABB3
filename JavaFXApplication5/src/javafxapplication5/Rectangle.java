@@ -40,10 +40,19 @@ private double With, height;
     
     @Override
     public void paint(GraphicsContext gc) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(isFilled()){   
+            gc.setFill(getColor());
+        }
+        else{
+            gc.setFill(getColor());
+        }    
+        gc.fillRect(getX(), getY(), getWith() , getHeight());
+        gc.setStroke(getColor());
+        gc.setLineWidth(4.0);
+            
     }
     
-    @Override
+    /*@Override
      public void constrain(
             double boxX, double boxY, 
             double boxWidth, double boxHeight) {
@@ -58,11 +67,12 @@ private double With, height;
         } else if (y > boxHeight) {
             dy = -Math.abs(dy);
         }*/
-    }
+    }*/
 
     @Override
     public String toString() {
-        return "Rectangle{" + "With=" + With + ", height=" + height + '}';
+        String s="";
+        return s;
     }
     
 }
