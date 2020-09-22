@@ -52,22 +52,31 @@ private double With, height;
             
     }
     
-    /*@Override
+    @Override
      public void constrain(
             double boxX, double boxY, 
             double boxWidth, double boxHeight) {
         // If outside the box - calculate new dx and dy
-       /* if (x < boxX) {
-            dx = Math.abs(dx);
-        } else if (x > boxWidth) {
-            dx = -Math.abs(dx);
+        if (getX() < boxX || getX()+getWith()< boxX) {
+            double newDx = Math.abs(super.getDx());
+            double newDy = Math.abs(super.getDy());
+            super.setVelocity(newDy, newDy);
+            
+        } else if (getX()> boxWidth || getX()+getWith() > boxWidth) {
+            double newDx = -Math.abs(super.getDx());
+            double newDy = -Math.abs(super.getDy());
+            super.setVelocity(newDy, newDy);
         }
-        if (y < boxY) {
-            dy = Math.abs(dy);
-        } else if (y > boxHeight) {
-            dy = -Math.abs(dy);
-        }*/
-    }*/
+        if (getY() < boxY || getY()+getHeight()< boxY) {
+            double newDx = Math.abs(super.getDx());
+            double newDy = Math.abs(super.getDy());
+            super.setVelocity(newDy, newDy);
+        } else if (getY()> boxHeight || getY()+getHeight() > boxHeight) {
+            double newDx = -Math.abs(super.getDx());
+            double newDy = -Math.abs(super.getDy());
+            super.setVelocity(newDy, newDy);
+        }
+    }
 
     @Override
     public String toString() {
@@ -75,4 +84,5 @@ private double With, height;
         return s;
     }
     
+
 }
