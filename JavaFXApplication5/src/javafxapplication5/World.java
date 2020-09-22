@@ -28,8 +28,7 @@ public class World {
         this.height = height;
 
         shapes = new Shape[1]; // an array of references (change to non-zero size)
-        shapes[0]= new Line();// Create the actual Shape objects (sub types)
-        
+        shapes[0]= new Rectangle(10.0,5.0,true,20.0,30.0,Color.BLACK);// Create the actual Shape objects (sub types)
         // ....
     }
 
