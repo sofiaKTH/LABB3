@@ -28,7 +28,7 @@ public class World {
         this.height = height;
 
         shapes = new Shape[1]; // an array of references (change to non-zero size)
-        shapes[0]= new Line();// Create the actual Shape objects (sub types)
+        shapes[0]= new Line(10.0,0.005,150.0,0.005,Color.AQUA);// Create the actual Shape objects (sub types)
         
         // ....
     }
