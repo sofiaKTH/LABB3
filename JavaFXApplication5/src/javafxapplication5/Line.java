@@ -47,24 +47,34 @@ public class Line extends Shape{
             double boxWidth, double boxHeight) {
         // If outside the box - calculate new dx and dy
         double dx,dy;
-        if (getX() < boxX) {
+        if (getX() < boxX || x2 < boxX) {
             dx = Math.abs(super.getDx());
             dy = Math.abs(super.getDy());
             super.setVelocity(dx, dy);
-        } else if (getX() > boxWidth) {
+        } else if (getX() > boxWidth || x2 > boxWidth) {
             dx = -Math.abs(getDx());
             dy = -Math.abs(getDy());
             super.setVelocity(dx, dy);
         }
-        if (getY() < boxY) {
+        if (getY() < boxY || y2 < boxY) {
             dx = Math.abs(super.getDx());
             dy = Math.abs(super.getDy());
             super.setVelocity(dx, dy);
-        } else if (getY() > boxHeight) {
+        } else if (getY() > boxHeight || y2 > boxHeight) {
             dx = -Math.abs(getDx());
             dy = -Math.abs(getDy());
             super.setVelocity(dx, dy);
         }
+    }
+    @Override
+    public void move(long elapsedTimeNs) {
+        double newX1,newY1;
+        newX1 = getX() + getDx() * elapsedTimeNs / BILLION;
+        setX(newX1);
+        newY1 = getY() + getDy() * elapsedTimeNs / BILLION;
+        setY(newY1);
+        x2 += getDx() * elapsedTimeNs / BILLION;
+        y2 += getDy() * elapsedTimeNs / BILLION;
     }
     
     @Override

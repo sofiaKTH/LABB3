@@ -27,9 +27,11 @@ public class World {
         this.width = width;
         this.height = height;
 
-        shapes = new Shape[1]; // an array of references (change to non-zero size)
+        shapes = new Shape[2]; // an array of references (change to non-zero size)
         shapes[0]= new Line(0.0,0.0,70.0,70.0,Color.AQUA);// Create the actual Shape objects (sub types)
         shapes[0].setVelocity(10.0, 20.0);
+        shapes[1] = new Line(1.1,1.1,50.0,50.0,Color.CHARTREUSE);
+        shapes[1].setVelocity(20.0, 40.0);
         
         // ....
     }

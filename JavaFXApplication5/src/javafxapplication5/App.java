@@ -59,7 +59,6 @@ public class App extends Application {
             gc.setFill(Color.WHITESMOKE);
             gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
             
-       
 
             // paint the shapes
             for (Shape b : world.getShapes()) {
