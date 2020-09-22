@@ -38,7 +38,17 @@ public class World {
         shapes[3].setVelocity(100.0, 50.0);
         shapes[4]= new Circle(90.0,90.0, true, 30.0, Color.RED);
         shapes[4].setVelocity(50.0, 50.0);
-        
+        for(int i = 0; i<5; i++){
+            if(shapes[i] instanceof FillableShape){
+                FillableShape f =(FillableShape) shapes[i];
+                if(f.isFilled()){
+                    f.setFilled(false);
+                }
+                else{
+                    f.setFilled(true);
+                }
+            }
+         }
     }
 
     /**
