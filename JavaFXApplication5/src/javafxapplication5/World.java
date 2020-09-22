@@ -27,14 +27,18 @@ public class World {
         this.width = width;
         this.height = height;
 
-        shapes = new Shape[3]; // an array of references (change to non-zero size)
+        shapes = new Shape[5]; // an array of references (change to non-zero size)
         shapes[0]= new Line(0.0,0.0,70.0,70.0,Color.AQUA);// Create the actual Shape objects (sub types)
         shapes[0].setVelocity(10.0, 20.0);
         shapes[1] = new Line(1.1,1.1,50.0,50.0,Color.CHARTREUSE);
         shapes[1].setVelocity(20.0, 40.0);
-        shapes[2]= new Rectangle(20.0,40.0, false, 3.0,5.0, Color.AQUAMARINE);
-        shapes[2].setVelocity(10.0, 10.0);
-        // ....
+        shapes[2]= new Rectangle(3.0,5.0, false,20.0,40.0, Color.AQUAMARINE);
+        shapes[2].setVelocity(50.0, 60.0);
+        shapes[3]= new Circle(90.0,6.0, false, 60.0, Color.PINK);
+        shapes[3].setVelocity(100.0, 50.0);
+        shapes[4]= new Circle(90.0,90.0, true, 30.0, Color.RED);
+        shapes[4].setVelocity(50.0, 50.0);
+        
     }
 
     /**

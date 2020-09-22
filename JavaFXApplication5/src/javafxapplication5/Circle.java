@@ -10,13 +10,13 @@ import javafx.scene.paint.Color;
 
 /**
  *
- * @author nadri
+ * 
  */
 public class Circle extends FillableShape{
     
     private double diameter;
 
-    public Circle(boolean filled, double x, double y, Color color, double diameter){
+    public Circle(double x, double y,boolean filled, double diameter, Color color){
         super(filled, x, y, color);
         this.diameter=diameter;
     }
@@ -29,26 +29,43 @@ public class Circle extends FillableShape{
         this.diameter = diameter;
     }
         
-    @Override
-    public void constrain(
-            double boxX, double boxY, 
-            double boxWidth, double boxHeight) {
-        // If outside the box - calculate new dx and dy
-       /* if (x < boxX) {
-            dx = Math.abs(dx);
-        } else if (x > boxWidth) {
-            dx = -Math.abs(dx);
-        }
-        if (y < boxY) {
-            dy = Math.abs(dy);
-        } else if (y > boxHeight) {
-            dy = -Math.abs(dy);
-        }*/
-    }
 
     @Override
+    public void constrain(double boxX, double boxY, 
+            double boxWidth, double boxHeight){
+        double newDx,newDy;
+        // If outside the box - calculate new dx and dy
+        if (getX() < boxX || getX()+getDiameter()< boxX) {
+             newDx = Math.abs(getDx());
+             newDy = Math.abs(getDy());
+            setVelocity(newDy, newDy);
+            
+        } else if (getX()> boxWidth || getX()+getDiameter() > boxWidth) {
+            newDx = -Math.abs(getDx());
+            newDy = -Math.abs(getDy());
+            setVelocity(newDy, newDy);
+        }
+        if (getY() < boxY || getY()+getDiameter()< boxY) {
+            newDx = Math.abs(getDx());
+            newDy = Math.abs(getDy());
+            setVelocity(newDy, newDy);
+        } else if (getY()> boxHeight || getY()+getDiameter() > boxHeight) {
+            newDx = -Math.abs(getDx());
+            newDy = -Math.abs(getDy());
+            setVelocity(newDy, newDy);
+        }
+    }
+        
+    
+    @Override
     public void paint(GraphicsContext gc) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(isFilled()){   
+            gc.setFill(getColor());
+            gc.fillOval(getX(), getY(), getDiameter(), getDiameter());
+        }
+        gc.setStroke(getColor());
+        gc.strokeOval(getX(), getY(), getDiameter(), getDiameter());
+        gc.setLineWidth(3.0);
     }
 
     @Override

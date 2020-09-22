@@ -15,7 +15,7 @@ import javafx.scene.paint.Color;
 public class Rectangle extends FillableShape{
 private double With, height;
 
-    public Rectangle(double With, double height, boolean filled, double x, double y, Color color) {
+    public Rectangle(double x, double y, boolean filled, double With, double height, Color color) {
         super(filled, x, y, color);
         this.With = With;
         this.height = height;
@@ -54,25 +54,26 @@ private double With, height;
      public void constrain(
             double boxX, double boxY, 
             double boxWidth, double boxHeight) {
+         double newDx,newDy;
         // If outside the box - calculate new dx and dy
         if (getX() < boxX || getX()+getWith()< boxX) {
-            double newDx = Math.abs(super.getDx());
-            double newDy = Math.abs(super.getDy());
-            super.setVelocity(newDy, newDy);
+             newDx = Math.abs(getDx());
+             newDy = Math.abs(getDy());
+            setVelocity(newDy, newDy);
             
         } else if (getX()> boxWidth || getX()+getWith() > boxWidth) {
-            double newDx = -Math.abs(super.getDx());
-            double newDy = -Math.abs(super.getDy());
-            super.setVelocity(newDy, newDy);
+            newDx = -Math.abs(getDx());
+            newDy = -Math.abs(getDy());
+            setVelocity(newDy, newDy);
         }
         if (getY() < boxY || getY()+getHeight()< boxY) {
-            double newDx = Math.abs(super.getDx());
-            double newDy = Math.abs(super.getDy());
-            super.setVelocity(newDy, newDy);
+            newDx = Math.abs(getDx());
+            newDy = Math.abs(getDy());
+            setVelocity(newDy, newDy);
         } else if (getY()> boxHeight || getY()+getHeight() > boxHeight) {
-            double newDx = -Math.abs(super.getDx());
-            double newDy = -Math.abs(super.getDy());
-            super.setVelocity(newDy, newDy);
+            newDx = -Math.abs(getDx());
+            newDy = -Math.abs(getDy());
+            setVelocity(newDy, newDy);
         }
     }
 
