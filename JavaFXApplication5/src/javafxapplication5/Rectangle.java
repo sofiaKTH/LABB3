@@ -44,6 +44,9 @@ private double With, height;
             gc.setFill(getColor());
             gc.fillRect(getX(), getY(), getWith() , getHeight());
         }
+        /*else{
+            gc.setFill(Color.WHITE);
+        } */   
         gc.setStroke(getColor());
         gc.strokeRect(getX(), getY(), getWith(), getHeight());
         gc.setLineWidth(5.0);
