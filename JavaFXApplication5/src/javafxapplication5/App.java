@@ -1,7 +1,5 @@
 package javafxapplication5;
 
- // TODO: Change to your package name
-
 import static java.lang.System.gc;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;

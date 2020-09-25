@@ -4,10 +4,8 @@ package javafxapplication5;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
-/**
- *
- * @author sofia
- */
+
+
 public class Line extends Shape{
     private double x2,y2;
     

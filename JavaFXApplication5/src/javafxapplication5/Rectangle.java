@@ -1,17 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package javafxapplication5;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-/**
- *
- * @author nadri
- */
+
 public class Rectangle extends FillableShape{
 private double With, height;
 
@@ -44,9 +37,7 @@ private double With, height;
             gc.setFill(getColor());
             gc.fillRect(getX(), getY(), getWith() , getHeight());
         }
-        /*else{
-            gc.setFill(Color.WHITE);
-        } */   
+          
         gc.setStroke(getColor());
         gc.strokeRect(getX(), getY(), getWith(), getHeight());
         gc.setLineWidth(5.0);
